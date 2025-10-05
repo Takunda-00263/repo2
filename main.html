@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KEITH-XMD MINI | PAIR CODE</title>
+
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"></script>
+
+  <style>
+    :root {
+      --main: #5ab0ff;
+      --accent: #006eff;
+      --bg: #050d1a;
+      --text: #f5faff;
+      --glass: rgba(255,255,255,0.05);
+      --border: rgba(255,255,255,0.15);
+      --glow: 0 0 20px rgba(0,119,255,0.4);
+      --transition: all 0.3s ease;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+    body {
+      background: radial-gradient(circle at top, #061a33, #030912);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      padding-top: 110px; /* keeps form below navbar */
+    }
+
+    #particles-js {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+    }
+
+    .navbar {
+      width: 100%;
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      padding: 1rem 2rem;
+      border-bottom: 1px solid var(--border);
+      position: fixed;
+      top: 0;
+      left: 0;
+      text-align: center;
+      box-shadow: var(--glow);
+      z-index: 1000; /* keeps navbar above everything */
+    }
+
+    .logo {
+      color: var(--text);
+      font-size: 1.8rem;
+      font-weight: 700;
+      text-decoration: none;
+      text-shadow: var(--glow);
+    }
+
+    .logo i {
+      color: var(--accent);
+      margin-right: 0.5rem;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%,100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      background: linear-gradient(90deg, var(--main), var(--accent));
+      -webkit-background-clip: text;
+      color: transparent;
+      text-shadow: var(--glow);
+    }
+
+    .typing-text {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+      opacity: 0.9;
+    }
+
+    .pair-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 2rem;
+      min-height: calc(100vh - 160px);
+    }
+
+    .pair-card {
+      width: 100%;
+      max-width: 420px;
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+      animation: fadeInUp 0.8s ease;
+    }
+
+    .pair-card h2 {
+      text-align: center;
+      font-size: 1.8rem;
+      color: var(--main);
+      margin-bottom: 1rem;
+    }
+
+    .pair-card p {
+      text-align: center;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      color: rgba(255,255,255,0.7);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: 500;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 1rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.1);
+      color: var(--text);
+      margin-bottom: 1rem;
+      outline: none;
+    }
+
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .btn {
+      padding: 0.9rem;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: none;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--glow);
+    }
+
+    .form-bottom-btn {
+      width: 100%;
+      margin-top: 1.5rem;
+      padding: 0.8rem;
+      border: 1.5px solid var(--accent);
+      border-radius: 13px;
+      background: none;
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .form-bottom-btn:hover {
+      background: rgba(0,110,255,0.1);
+      transform: scale(1.03);
+    }
+
+    #pair {
+      text-align: center;
+      margin-top: 1rem;
+      word-wrap: break-word;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+      backdrop-filter: blur(8px);
+      width: 100%;
+      color: rgba(255,255,255,0.8);
+      margin-top: 2rem;
+    }
+
+    footer span {
+      color: var(--main);
+      font-weight: 600;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="particles-js"></div>
+
+  <header class="navbar">
+    <a href="#" class="logo"><i class="fas fa-robot"></i> KEITH-XMD MINI</a>
+  </header>
+
+
+
+  <section class="pair-section">
+    <div class="pair-card">
+      <h2>KEITH-XMD MINI</h2>
+      <p>Enter your WhatsApp number with country code to get your pairing code .</p>
+
+      <label for="phone-number">Phone Number</label>
+      <input type="text" id="phone-number" placeholder="e.g., +26378xxx">
+
+      <div class="button-group">
+        <button class="btn" id="generate-code">Get Code & Link</button>
+        <button class="btn" id="validate-code" style="display:none;">Validate Session</button>
+        <button class="btn" id="copy-code" style="display:none;">Copy Code</button>
+      </div>
+
+      <a href="https://whatsapp.com/channel/0029VbANWX1DuMRi1VNPlB0y" target="_blank" class="form-bottom-btn">
+        View My Channel
+      </a>
+
+      <div id="loading-spinner" style="display:none;text-align:center;margin-top:1rem;">
+        <p>Generating your code...</p>
+      </div>
+
+      <div id="pair"></div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; <span id="currentYear"></span> KEITH-XMD MINI. Powered by <span>KEITH Tech</span> ⚡
+  </footer>
+
+  <script>
+    particlesJS("particles-js", {
+      particles: { number:{value:60}, color:{value:"#00bfff"}, size:{value:1}, line_linked:{enable:true,distance:120,color:"#00bfff",opacity:0.4,width:1}, move:{enable:true,speed:1,out_mode:"out"} },
+      interactivity:{ events:{onhover:{enable:true,mode:"grab"},onclick:{enable:true,mode:"push"}}, modes:{grab:{distance:200,line_linked:{opacity:0.6}}, push:{particles_nb:2}} }, retina_detect:true
+    });
+
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    document.addEventListener("DOMContentLoaded", () => { swal("Hello!", "Hope You Enjoy Our Mini Bot", "info"); });
+
+    const genBtn = document.getElementById('generate-code');
+    const valBtn = document.getElementById('validate-code');
+    const copyBtn = document.getElementById('copy-code');
+    const spinner = document.getElementById('loading-spinner');
+    const pairDiv = document.getElementById('pair');
+    const phoneInput = document.getElementById('phone-number');
+
+    async function copyToClipboard() {
+      const code = copyBtn.dataset.code;
+      try { await navigator.clipboard.writeText(code); copyBtn.textContent = 'Copied!'; setTimeout(() => copyBtn.textContent = 'Copy Code', 2000); }
+      catch (err) { console.error('Copy failed:', err); }
+    }
+
+    genBtn.addEventListener('click', async () => {
+      const num = phoneInput.value.replace(/\D/g,'');
+      if (!num) { pairDiv.textContent = '❗ Please enter your WhatsApp number with country code.'; return; }
+      spinner.style.display='block'; pairDiv.textContent=''; valBtn.style.display='none'; copyBtn.style.display='none'; genBtn.disabled=true;
+      try {
+        phoneInput.value='+'+num;
+        await new Promise(r=>setTimeout(r,1500));
+        const {data} = await axios.get(`/code?number=${num}`);
+        const code=data.code||'❗ Service Unavailable';
+        const waLink=`https://wa.me/${num}?text=${encodeURIComponent(code)}`;
+        pairDiv.innerHTML=`<p>Your Code: <strong>${code}</strong></p><p><a href="${waLink}" target="_blank" style="color:var(--main);">Open WhatsApp Link</a></p>`;
+        copyBtn.dataset.code=code; copyBtn.style.display='block'; valBtn.style.display='block';
+      } catch { pairDiv.textContent='❗ Error, please try again later.'; }
+      finally { spinner.style.display='none'; genBtn.disabled=false; }
+    });
+
+    copyBtn.addEventListener('click',copyToClipboard);
+    valBtn.addEventListener('click',()=>window.location.href='/validate');
+    phoneInput.addEventListener('input',function(){ let v=this.value.replace(/\D/g,''); this.value=v?'+'+v:''; });
+  </script>
+</body>
+</html>
