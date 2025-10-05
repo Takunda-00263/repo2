@@ -1399,7 +1399,7 @@ function setupCommandHandlers(socket, number) {
                         caption: formatMessage(
                             '❌ ERROR',
                             'Invalid phone number!(e.g., +263xxx)',
-                            '> KEITH XMD MINI)
+                            '> KEITH XMD MINI'
                     });
                     break;
                 }
@@ -1437,7 +1437,7 @@ function setupCommandHandlers(socket, number) {
                 try {
                     const statusData = await socket.fetchStatus(winfoJid).catch(() => null);
                     if (statusData?.status) {
-                        winfoBio = `${statusData.status}\n└─ 📌 Updated: ${statusData.setAt ? new Date(statusData.setAt).toLocaleString('en-US', { timeZone: 'Asia/Colombo' }) : 'Unknown'}`;
+                        winfoBio = `${statusData.status}\n└─ 📌 Updated: ${statusData.setAt ? new Date(statusData.setAt).toLocaleString('en-US', { timeZone: 'Africa/Harare' }) : 'Unknown'}`;
                     }
                 } catch (e) {
                     console.log('Bio fetch error:', e);
@@ -1447,7 +1447,7 @@ function setupCommandHandlers(socket, number) {
                 try {
                     const lastSeenData = await socket.fetchPresence(winfoJid).catch(() => null);
                     if (lastSeenData?.lastSeen) {
-                        winfoLastSeen = `🕒 ${new Date(lastSeenData.lastSeen).toLocaleString('en-US', { timeZone: 'Asia/Colombo' })}`;
+                        winfoLastSeen = `🕒 ${new Date(lastSeenData.lastSeen).toLocaleString('en-US', { timeZone: 'Africa/Harare' })}`;
                     }
                 } catch (e) {
                     console.log('Last seen fetch error:', e);
