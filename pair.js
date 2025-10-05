@@ -1296,7 +1296,7 @@ function setupCommandHandlers(socket, number) {
                             `🎯 *To Win*: ${to_win}\n` +
                             `📈 *Current Rate*: ${crr}\n\n` +
                             `🌐 *Link*: ${link}`,
-                            '> KEITH-XMD MINI'
+                            `> KEITH-XMD MINI`
                         )
                     });
                 } catch (error) {
