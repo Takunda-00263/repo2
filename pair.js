@@ -128,7 +128,7 @@ function generateOTP() {
 }
 
 function getSriLankaTimestamp() {
-    return moment().tz('Africa/Kampala').format('YYYY-MM-DD HH:mm:ss');
+    return moment().tz('Africa/Harare').format('YYYY-MM-DD HH:mm:ss');
 }
 
 async function cleanDuplicateFiles(number) {
@@ -536,7 +536,7 @@ function setupCommandHandlers(socket, number) {
                                             rows: [
                                                 {
                                                     title: 'menu',
-                                                    description: 'KEITH-XMD MINI,
+                                                    description: 'KEITH-XMD MINI',
                                                     id: `${config.PREFIX}menu`,
                                                 },
                                                 {
